@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "La Cabra en el Tejado · Bar mediterráneo en Madrid" },
-      { name: "description", content: "Bar acogedor en el centro de Madrid con aperitivos mediterráneos, falafel, crepes y el mejor vermut. C. de Sta. Ana 29." },
+      { name: "description", content: "Bar acogedor en el centro de Madrid con aperitivos mediterráneos, falafel, crepes y vermut. C. de Sta. Ana 29, La Latina." },
       { property: "og:title", content: "La Cabra en el Tejado" },
       { property: "og:description", content: "Aperitivos mediterráneos, falafel y crepes en el corazón de Madrid." },
     ],
@@ -19,105 +19,152 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <Layout transparentNav>
-      {/* HERO */}
-      <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Interior del bar La Cabra en el Tejado"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="relative h-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-end pb-24 md:pb-32">
-          <div className="max-w-3xl animate-fade-up">
-            <span className="inline-block text-cream/80 text-xs tracking-[0.4em] uppercase mb-6 border-l-2 border-primary pl-4">
-              Madrid · desde el centro
-            </span>
-            <h1 className="font-display text-cream text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] text-balance">
-              Donde Madrid<br />
-              <em className="text-primary not-italic font-normal">se encuentra</em> con el
-              Mediterráneo.
+    <Layout>
+      {/* HERO compacto */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10 md:pt-14 pb-16">
+        <div className="grid lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 bg-secondary px-3 py-1.5 rounded-full text-[11px] tracking-[0.25em] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                Abierto hoy
+              </span>
+              <span className="text-xs text-muted-foreground">La Latina · Madrid</span>
+            </div>
+            <h1 className="font-display text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] text-balance tracking-tight">
+              Mediterráneo,<br />
+              vermut y un<br />
+              <em className="text-primary not-italic">mural inolvidable</em>.
             </h1>
-            <p className="text-cream/85 mt-8 text-lg md:text-xl max-w-xl leading-relaxed">
-              Un bar acogedor con accesorios eclécticos y un mural que enamora. Falafel, hummus, crepes y vermut servidos con cariño.
+            <p className="text-muted-foreground mt-6 text-base md:text-lg max-w-lg leading-relaxed">
+              Bar acogedor con accesorios eclécticos. Falafel, hummus, crepes y aperitivos para compartir en C. de Sta. Ana 29.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/carta" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition shadow-warm">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/carta" className="bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:bg-primary/90 transition shadow-soft">
                 Ver la carta
               </Link>
-              <a href="tel:+34910333359" className="border border-cream/40 text-cream px-8 py-4 rounded-full font-medium hover:bg-cream/10 transition backdrop-blur-sm">
-                Reservar mesa
+              <a href="tel:+34910333359" className="border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition">
+                Reservar · 910 33 33 59
               </a>
+            </div>
+
+            {/* mini stats */}
+            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md border-t border-border pt-6">
+              <div>
+                <div className="font-display text-2xl text-primary">4,4★</div>
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">2,7k reseñas</div>
+              </div>
+              <div>
+                <div className="font-display text-2xl">7 días</div>
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">a la semana</div>
+              </div>
+              <div>
+                <div className="font-display text-2xl">Centro</div>
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">28005 Madrid</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 relative">
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-warm">
+              <img src={heroImg} alt="Interior del bar" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-5 -left-5 bg-background rounded-2xl p-4 shadow-soft border border-border hidden sm:block">
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Hoy</div>
+              <div className="font-display text-lg mt-0.5">13:00 – 1:30</div>
             </div>
           </div>
         </div>
-        {/* rating chip */}
-        <div className="absolute top-28 right-6 lg:right-10 hidden md:flex items-center gap-3 bg-background/95 backdrop-blur px-5 py-3 rounded-full shadow-warm">
-          <div className="flex text-primary">
-            {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
+      </section>
+
+      {/* UBICACIÓN destacada */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
+        <div className="bg-card rounded-3xl overflow-hidden shadow-soft border border-border grid md:grid-cols-5">
+          <div className="md:col-span-2 p-8 md:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-primary text-[11px] tracking-[0.35em] uppercase">Dónde estamos</span>
+              <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
+                En pleno corazón<br />de La Latina.
+              </h2>
+              <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
+                C. de Sta. Ana, 29<br />
+                28005 Madrid · Centro
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a
+                href="https://maps.google.com/?q=C.+de+Sta.+Ana+29+Madrid"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-foreground text-background px-5 py-2.5 rounded-full text-xs font-medium hover:opacity-90 transition"
+              >
+                Cómo llegar →
+              </a>
+              <Link to="/contacto" className="border border-border px-5 py-2.5 rounded-full text-xs font-medium hover:bg-secondary transition">
+                Horarios
+              </Link>
+            </div>
           </div>
-          <span className="text-sm font-semibold">4,4</span>
-          <span className="text-xs text-muted-foreground">· 2,7 mil reseñas</span>
+          <div className="md:col-span-3 min-h-[280px] md:min-h-[340px] relative">
+            <iframe
+              title="Ubicación"
+              src="https://www.google.com/maps?q=Calle+de+Santa+Ana+29,+Madrid&output=embed"
+              className="absolute inset-0 w-full h-full border-0 grayscale-[20%]"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
-      {/* INTRO */}
-      <section className="max-w-5xl mx-auto px-6 lg:px-10 py-24 md:py-32 text-center">
-        <span className="text-primary text-xs tracking-[0.4em] uppercase">La casa</span>
-        <h2 className="font-display text-4xl md:text-6xl mt-4 text-balance">
-          Pequeñas raciones,<br />grandes momentos.
-        </h2>
-        <p className="text-muted-foreground mt-8 text-lg leading-relaxed max-w-2xl mx-auto">
-          Llevamos años ofreciendo en La Latina un rincón donde el sabor mediterráneo se cruza con la conversación. Tapas para compartir, vermut bien tirado y un ambiente que te hace quedarte un rato más.
-        </p>
-      </section>
-
-      {/* HIGHLIGHTS */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-24">
-        <div className="grid md:grid-cols-3 gap-6">
+      {/* HIGHLIGHTS — más compactos */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <span className="text-primary text-[11px] tracking-[0.35em] uppercase">La carta</span>
+            <h2 className="font-display text-3xl md:text-5xl mt-2 leading-tight">Lo que no te puedes perder</h2>
+          </div>
+          <Link to="/carta" className="hidden sm:inline text-sm text-primary hover:underline">Ver todo →</Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
           {[
-            { img: tapasImg, tag: "Mediterráneo", title: "Hummus & Falafel", text: "Una de nuestras especialidades. Cremoso, especiado y servido con pita caliente." },
-            { img: crepesImg, tag: "Para compartir", title: "Crepes salados y dulces", text: "Una vuelta de tuerca a la carta. Rellenos creativos cocinados al momento." },
-            { img: vermutImg, tag: "La hora del", title: "Vermut de Madrid", text: "Con su naranja y su aceituna. Como manda la tradición, pero como te gusta a ti." },
+            { img: tapasImg, tag: "Mediterráneo", title: "Hummus & Falafel", text: "Cremoso, especiado y servido con pita caliente." },
+            { img: crepesImg, tag: "Para compartir", title: "Crepes salados y dulces", text: "Una vuelta de tuerca cocinada al momento." },
+            { img: vermutImg, tag: "Tradición", title: "Vermut de Madrid", text: "Con su naranja y su aceituna." },
           ].map((c) => (
-            <article key={c.title} className="group rounded-3xl overflow-hidden bg-card shadow-soft hover:shadow-warm transition-all duration-500">
-              <div className="aspect-[4/5] overflow-hidden">
+            <article key={c.title} className="group rounded-2xl overflow-hidden bg-card border border-border hover:shadow-warm transition-all duration-500">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img src={c.img} alt={c.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="p-7">
-                <span className="text-xs uppercase tracking-[0.3em] text-primary">{c.tag}</span>
-                <h3 className="font-display text-2xl mt-2">{c.title}</h3>
-                <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{c.text}</p>
+              <div className="p-5">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-primary">{c.tag}</span>
+                <h3 className="font-display text-xl mt-1.5">{c.title}</h3>
+                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{c.text}</p>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* QUOTE */}
-      <section className="bg-ink text-cream py-28">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <svg className="w-12 h-12 mx-auto text-primary mb-8" fill="currentColor" viewBox="0 0 24 24"><path d="M9.13 8.5c-.8 0-1.5.3-2 .9-.5.6-.8 1.3-.8 2.2 0 .9.3 1.6.8 2.2.5.6 1.2.9 2 .9.4 0 .8-.1 1.2-.3-.4 1.4-1.4 2.5-3 3.4l1 1.5c1.6-.9 2.9-2 3.7-3.4.8-1.4 1.2-2.9 1.2-4.5 0-.9-.3-1.6-.8-2.2-.5-.6-1.2-.7-2-.7H9.13zm8 0c-.8 0-1.5.3-2 .9-.5.6-.8 1.3-.8 2.2 0 .9.3 1.6.8 2.2.5.6 1.2.9 2 .9.4 0 .8-.1 1.2-.3-.4 1.4-1.4 2.5-3 3.4l1 1.5c1.6-.9 2.9-2 3.7-3.4.8-1.4 1.2-2.9 1.2-4.5 0-.9-.3-1.6-.8-2.2-.5-.6-1.2-.7-2-.7h-1.3z"/></svg>
-          <p className="font-display text-2xl md:text-4xl leading-snug text-balance italic">
-            "Buen sitio en La Latina para tapear y tomar un vermut. El ambiente es heterogéneo y el trato muy agradable."
-          </p>
-          <p className="mt-8 text-cream/60 text-sm tracking-widest uppercase">— Reseña de Google</p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-28">
-        <div className="bg-gradient-warm rounded-[2rem] p-12 md:p-20 text-primary-foreground relative overflow-hidden">
-          <div className="relative z-10 max-w-2xl">
-            <h2 className="font-display text-4xl md:text-6xl text-balance">¿Nos vemos esta noche?</h2>
-            <p className="mt-6 text-lg opacity-90">
-              Estamos en C. de Sta. Ana 29. Llama y te guardamos sitio en la mejor mesa.
+      {/* Reseña + CTA en banda compacta */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-24">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-ink text-cream rounded-3xl p-8 md:p-10">
+            <div className="flex text-primary text-lg mb-4">★★★★★</div>
+            <p className="font-display text-xl md:text-2xl leading-snug italic">
+              "Buen sitio en La Latina para tapear y tomar un vermut. El ambiente es heterogéneo y el trato muy agradable."
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="tel:+34910333359" className="bg-cream text-ink px-8 py-4 rounded-full font-semibold hover:bg-cream/90 transition">
+            <p className="mt-6 text-cream/60 text-[11px] tracking-[0.3em] uppercase">— Reseña de Google</p>
+          </div>
+          <div className="bg-gradient-warm rounded-3xl p-8 md:p-10 text-primary-foreground flex flex-col justify-between">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance">¿Nos vemos esta noche?</h2>
+              <p className="mt-3 opacity-90 text-sm">Llama y te guardamos sitio en la mejor mesa.</p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="tel:+34910333359" className="bg-cream text-ink px-6 py-3 rounded-full font-semibold text-sm hover:bg-cream/90 transition">
                 910 33 33 59
               </a>
-              <Link to="/contacto" className="border border-cream/50 px-8 py-4 rounded-full font-medium hover:bg-cream/10 transition">
+              <Link to="/contacto" className="border border-cream/50 px-6 py-3 rounded-full font-medium text-sm hover:bg-cream/10 transition">
                 Cómo llegar
               </Link>
             </div>
