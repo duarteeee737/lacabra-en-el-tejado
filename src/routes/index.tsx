@@ -19,104 +19,79 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <Layout>
-      {/* HERO compacto */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 pt-10 md:pt-14 pb-16">
-        <div className="grid lg:grid-cols-12 gap-8 items-end">
-          <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 bg-secondary px-3 py-1.5 rounded-full text-[11px] tracking-[0.25em] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Abierto hoy
-              </span>
-              <span className="text-xs text-muted-foreground">La Latina · Madrid</span>
-            </div>
-            <h1 className="font-display text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] text-balance tracking-tight">
-              Mediterráneo,<br />
-              vermut y un<br />
-              <em className="text-primary not-italic">mural inolvidable</em>.
-            </h1>
-            <p className="text-muted-foreground mt-6 text-base md:text-lg max-w-lg leading-relaxed">
-              Bar acogedor con accesorios eclécticos. Falafel, hummus, crepes y aperitivos para compartir en C. de Sta. Ana 29.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/carta" className="bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:bg-primary/90 transition shadow-soft">
-                Ver la carta
-              </Link>
-              <a href="tel:+34910333359" className="border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition">
-                Reservar · 910 33 33 59
-              </a>
-            </div>
+    <Layout transparentNav>
+      {/* HERO con foto de fondo */}
+      <section className="relative min-h-[78vh] md:min-h-[82vh] flex items-end overflow-hidden">
+        <img
+          src={heroImg}
+          alt="Interior del bar La Cabra en el Tejado"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/85" />
 
-            {/* mini stats */}
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md border-t border-border pt-6">
-              <div>
-                <div className="font-display text-2xl text-primary">4,4★</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">2,7k reseñas</div>
-              </div>
-              <div>
-                <div className="font-display text-2xl">7 días</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">a la semana</div>
-              </div>
-              <div>
-                <div className="font-display text-2xl">Centro</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">28005 Madrid</div>
-              </div>
-            </div>
+        {/* rating chip */}
+        <div className="absolute top-24 right-6 lg:right-10 hidden md:flex items-center gap-2 bg-background/90 backdrop-blur px-4 py-2 rounded-full shadow-soft">
+          <div className="flex text-primary text-sm">★★★★★</div>
+          <span className="text-sm font-semibold">4,4</span>
+          <span className="text-xs text-muted-foreground">· 2,7k</span>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-10 pb-14 md:pb-20">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="inline-flex items-center gap-2 bg-cream/15 backdrop-blur border border-cream/20 text-cream px-3 py-1.5 rounded-full text-[11px] tracking-[0.25em] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Abierto hoy
+            </span>
+            <span className="text-xs text-cream/80">La Latina · Madrid</span>
           </div>
-
-          <div className="lg:col-span-5 relative max-w-sm lg:max-w-none mx-auto w-full">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-warm">
-              <img src={heroImg} alt="Interior del bar" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-background rounded-xl p-3 shadow-soft border border-border hidden sm:block">
-              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Hoy</div>
-              <div className="font-display text-base mt-0.5">13:00 – 1:30</div>
-            </div>
+          <h1 className="font-display text-cream text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] text-balance tracking-tight max-w-3xl">
+            Mediterráneo, vermut y un{" "}
+            <em className="text-primary not-italic">mural inolvidable</em>.
+          </h1>
+          <p className="text-cream/85 mt-6 text-base md:text-lg max-w-xl leading-relaxed">
+            Bar acogedor con accesorios eclécticos. Falafel, hummus, crepes y aperitivos para compartir en C. de Sta. Ana 29.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/carta" className="bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:bg-primary/90 transition shadow-warm">
+              Ver la carta
+            </Link>
+            <a href="tel:+34910333359" className="border border-cream/40 text-cream px-6 py-3 rounded-full text-sm font-medium hover:bg-cream/10 transition backdrop-blur-sm">
+              Reservar · 910 33 33 59
+            </a>
           </div>
         </div>
       </section>
 
-      {/* UBICACIÓN destacada */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
-        <div className="bg-card rounded-3xl overflow-hidden shadow-soft border border-border grid md:grid-cols-5">
-          <div className="md:col-span-2 p-8 md:p-10 flex flex-col justify-between">
-            <div>
-              <span className="text-primary text-[11px] tracking-[0.35em] uppercase">Dónde estamos</span>
-              <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
-                En pleno corazón<br />de La Latina.
-              </h2>
-              <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-                C. de Sta. Ana, 29<br />
-                28005 Madrid · Centro
-              </p>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <a
-                href="https://maps.google.com/?q=C.+de+Sta.+Ana+29+Madrid"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-foreground text-background px-5 py-2.5 rounded-full text-xs font-medium hover:opacity-90 transition"
-              >
-                Cómo llegar →
-              </a>
-              <Link to="/contacto" className="border border-border px-5 py-2.5 rounded-full text-xs font-medium hover:bg-secondary transition">
-                Horarios
-              </Link>
-            </div>
+      {/* INTRO + stats */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16 md:py-20 grid md:grid-cols-3 gap-6 items-center">
+        <div className="md:col-span-2">
+          <span className="text-primary text-[11px] tracking-[0.35em] uppercase">La casa</span>
+          <h2 className="font-display text-3xl md:text-5xl mt-2 leading-tight text-balance">
+            Pequeñas raciones, grandes momentos.
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-xl leading-relaxed">
+            Llevamos años ofreciendo en La Latina un rincón donde el sabor mediterráneo se cruza con la conversación. Tapas para compartir, vermut bien tirado y un ambiente que te hace quedarte un rato más.
+          </p>
+        </div>
+        <div className="grid grid-cols-3 md:grid-cols-1 gap-4">
+          <div className="border-l-2 border-primary pl-4">
+            <div className="font-display text-2xl text-primary">4,4★</div>
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">2,7k reseñas</div>
           </div>
-          <div className="md:col-span-3 min-h-[280px] md:min-h-[340px] relative">
-            <iframe
-              title="Ubicación"
-              src="https://www.google.com/maps?q=Calle+de+Santa+Ana+29,+Madrid&output=embed"
-              className="absolute inset-0 w-full h-full border-0 grayscale-[20%]"
-              loading="lazy"
-            />
+          <div className="border-l-2 border-border pl-4">
+            <div className="font-display text-2xl">7 días</div>
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">a la semana</div>
+          </div>
+          <div className="border-l-2 border-border pl-4">
+            <div className="font-display text-2xl">Centro</div>
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">28005 Madrid</div>
           </div>
         </div>
       </section>
 
-      {/* HIGHLIGHTS — más compactos */}
+      {/* HIGHLIGHTS */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
         <div className="flex items-end justify-between mb-8">
           <div>
@@ -161,27 +136,9 @@ function Index() {
 
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            {
-              name: "Eva García",
-              date: "Hace 3 meses",
-              rating: 4,
-              text: "El sitio está muy bien y la relación calidad-precio está genial. Probamos el falafel, una de sus especialidades, y repetiremos seguro.",
-              initials: "EG",
-            },
-            {
-              name: "Daniel Anguita",
-              date: "Hace 2 meses",
-              rating: 4,
-              text: "Buen sitio en La Latina para tapear y tomar un vermut. El ambiente es heterogéneo y puedes encontrar gente de todo tipo. El trato y el servicio muy agradable.",
-              initials: "DA",
-            },
-            {
-              name: "María L.",
-              date: "Hace 1 mes",
-              rating: 5,
-              text: "Acogedor, con un mural precioso y carta variada. Ideal para una cena tranquila o unas cañas con amigos. Muy recomendable.",
-              initials: "ML",
-            },
+            { name: "Eva García", date: "Hace 3 meses", rating: 4, text: "El sitio está muy bien y la relación calidad-precio está genial. Probamos el falafel, una de sus especialidades, y repetiremos seguro.", initials: "EG" },
+            { name: "Daniel Anguita", date: "Hace 2 meses", rating: 4, text: "Buen sitio en La Latina para tapear y tomar un vermut. El ambiente es heterogéneo y puedes encontrar gente de todo tipo. El trato y el servicio muy agradable.", initials: "DA" },
+            { name: "María L.", date: "Hace 1 mes", rating: 5, text: "Acogedor, con un mural precioso y carta variada. Ideal para una cena tranquila o unas cañas con amigos. Muy recomendable.", initials: "ML" },
           ].map((r) => (
             <article key={r.name} className="bg-card border border-border rounded-2xl p-6 hover:shadow-soft transition flex flex-col">
               <div className="flex items-center gap-3 mb-4">
@@ -216,20 +173,41 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* UBICACIÓN al final */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 pb-24">
-        <div className="bg-gradient-warm rounded-3xl p-8 md:p-12 text-primary-foreground flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance">¿Nos vemos esta noche?</h2>
-            <p className="mt-2 opacity-90 text-sm">Llama y te guardamos sitio en la mejor mesa.</p>
+        <div className="bg-card rounded-3xl overflow-hidden shadow-soft border border-border grid md:grid-cols-5">
+          <div className="md:col-span-2 p-8 md:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-primary text-[11px] tracking-[0.35em] uppercase">Dónde estamos</span>
+              <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
+                En pleno corazón<br />de La Latina.
+              </h2>
+              <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
+                C. de Sta. Ana, 29<br />
+                28005 Madrid · Centro
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a
+                href="https://maps.google.com/?q=C.+de+Sta.+Ana+29+Madrid"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-foreground text-background px-5 py-2.5 rounded-full text-xs font-medium hover:opacity-90 transition"
+              >
+                Cómo llegar →
+              </a>
+              <Link to="/contacto" className="border border-border px-5 py-2.5 rounded-full text-xs font-medium hover:bg-secondary transition">
+                Horarios
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="tel:+34910333359" className="bg-cream text-ink px-6 py-3 rounded-full font-semibold text-sm hover:bg-cream/90 transition">
-              910 33 33 59
-            </a>
-            <Link to="/contacto" className="border border-cream/50 px-6 py-3 rounded-full font-medium text-sm hover:bg-cream/10 transition">
-              Cómo llegar
-            </Link>
+          <div className="md:col-span-3 min-h-[280px] md:min-h-[360px] relative">
+            <iframe
+              title="Ubicación"
+              src="https://www.google.com/maps?q=Calle+de+Santa+Ana+29,+Madrid&output=embed"
+              className="absolute inset-0 w-full h-full border-0 grayscale-[20%]"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
