@@ -79,8 +79,8 @@
   --gradient-hero: linear-gradient(180deg, oklch(0.15 0.02 40 / 0.2) 0%, oklch(0.15 0.02 40 / 0.85) 100%);
   --shadow-warm: 0 20px 60px -20px oklch(0.4 0.12 40 / 0.4);
   --shadow-soft: 0 10px 40px -15px oklch(0.3 0.05 40 / 0.25);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(0.97 0.018 80);
+  --foreground: oklch(0.22 0.02 60);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
