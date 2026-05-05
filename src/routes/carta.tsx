@@ -229,6 +229,104 @@ function CartaPage() {
           </p>
         </div>
       </section>
+
+      <AlergenosSection />
     </Layout>
+  );
+}
+
+const alergenos: { group: string; items: { name: string; info: string }[] }[] = [
+  {
+    group: "Raciones",
+    items: [
+      { name: "Humus (V·GF*)", info: "Sésamo, sulfitos y gluten (opción sin gluten sin pita; los nachos contienen trazas de lácteos y soja). Posibles trazas de frutos de cáscara en el comino." },
+      { name: "Tzatziki (GF*)", info: "Lácteos y gluten (opción sin gluten sin pita; los nachos contienen trazas de lácteos y soja)." },
+      { name: "Crema de berenjena (V·GF*)", info: "Sésamo y gluten (opción sin gluten sin pita; los nachos contienen trazas de lácteos y soja)." },
+      { name: "Patatas con salsa de setas (GF)", info: "Lácteos." },
+      { name: "Falafels (V·GF)", info: "Sésamo; sulfitos y soja en la vinagreta. Posibles trazas de frutos de cáscara en el comino." },
+      { name: "Guacamole con patacones (V·GF)", info: "—" },
+      { name: "Pita de falafels con humus o tzatziki", info: "Gluten, sésamo en la salsa tahina. Sulfitos y soja en la vinagreta. Lácteos en el tzatziki. Posibles trazas de frutos de cáscara en el comino." },
+      { name: "Pollo tikka masala con arroz (GF)", info: "Sésamo (opción sin sésamo), mostaza. Trazas de sulfitos y frutos de cáscara en las especias." },
+      { name: "Boniato asado con babaganoush (V·GF)", info: "Sésamo." },
+      { name: "Brochetas de pollo con salsa satay", info: "Soja y gluten (adobo del pollo) y frutos de cáscara (cacahuetes). Sulfitos y soja en la vinagreta." },
+      { name: "Provoletta (GF*)", info: "Lácteos y gluten en el pan." },
+      { name: "Ensalada con queso de cabra, pasas y nueces", info: "Lácteos, gluten (opción sin gluten), frutos de cáscara (nueces), sulfitos (pasas); azufre y soja en la vinagreta. Trazas de cacahuetes." },
+      { name: "Quiche de jamón y queso de cabra (GF)", info: "Lácteos, huevos." },
+      { name: "Quiche de puerros y Emmental (GF)", info: "Lácteos, huevos." },
+      { name: "Lacón a la gallega (GF)", info: "—" },
+    ],
+  },
+  {
+    group: "Crêpes",
+    items: [
+      { name: "Crêpe de pollo y champiñones", info: "Lácteos, huevos y frutos de cáscara. Trazas de soja y cacahuetes." },
+      { name: "Crêpe de queso de cabra y pesto", info: "Lácteos, huevos y frutos de cáscara. Trazas de soja y cacahuetes." },
+      { name: "Crêpe de espinacas y queso", info: "Lácteos, huevos, sulfitos. Trazas de soja." },
+      { name: "Crêpe de jamón y queso", info: "Lácteos y huevos. Trazas de soja." },
+    ],
+  },
+  {
+    group: "Tostas",
+    items: [
+      { name: "Todas las tostas", info: "Llevan gluten (opción sin gluten disponible)." },
+      { name: "Tosta de jamón con tomate", info: "—" },
+      { name: "Tosta de morcilla y manzana ácida", info: "—" },
+      { name: "Tosta de lacón y brie", info: "Lácteos." },
+      { name: "Tosta de salmón y aguacate", info: "Pescado." },
+      { name: "Tosta vegana de humus y aguacate", info: "Sésamo y sulfitos." },
+      { name: "Tosta de jamón y queso", info: "Lácteos y huevo." },
+      { name: "Tosta de queso de cabra y pesto", info: "Huevo, lácteos y frutos de cáscara. Trazas de soja y cacahuetes." },
+      { name: "Tosta de queso de cabra y miel", info: "Lácteos." },
+      { name: "Tosta de Idiazábal y tomates secos", info: "Lácteos y huevo." },
+    ],
+  },
+  {
+    group: "Postres",
+    items: [
+      { name: "Tarta de zanahoria (GF)", info: "Lácteos, huevos y frutos de cáscara. Trazas de cacahuetes y soja." },
+      { name: "Tarta vegana de maracuyá (GF)", info: "Soja, frutos de cáscara. Trazas de cacahuetes." },
+      { name: "Cheesecake (GF)", info: "Lácteos. Trazas de cacahuetes y soja." },
+      { name: "Brownie (GF)", info: "Lácteos y huevos. Trazas de frutos de cáscara y soja en el chocolate." },
+      { name: "Crêpe de Nutella", info: "Lácteos, huevos, soja y frutos de cáscara." },
+      { name: "Crêpe de chocolate y plátano", info: "Lácteos y huevos. Trazas de frutos de cáscara y soja." },
+      { name: "Crêpe de cacao ecológico", info: "Lácteos, huevos y frutos de cáscara. Trazas de soja." },
+      { name: "Crêpe de dulce de leche", info: "Lácteos y huevos. Trazas de soja." },
+    ],
+  },
+];
+
+function AlergenosSection() {
+  return (
+    <section className="max-w-5xl mx-auto px-6 lg:px-10 pb-24">
+      <div className="flex items-baseline gap-4 mb-6 pb-4 border-b border-border">
+        <h2 className="font-display text-3xl md:text-4xl">Alérgenos</h2>
+      </div>
+      <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5 md:p-6 mb-10">
+        <p className="text-sm text-foreground/90 leading-relaxed">
+          Si tiene alguna alergia alimentaria, por favor avise al equipo. En la cocina se manipula{" "}
+          <strong>gluten, cacahuetes, soja, sésamo, frutos de cáscara, pescado, huevos, leche, sulfitos y mostaza</strong>.
+        </p>
+      </div>
+
+      <div className="space-y-12">
+        {alergenos.map((g) => (
+          <div key={g.group}>
+            <h3 className="font-display text-2xl mb-5 text-primary">{g.group}</h3>
+            <ul className="divide-y divide-border/60">
+              {g.items.map((it) => (
+                <li key={it.name} className="py-3 grid md:grid-cols-[260px_1fr] gap-1 md:gap-6">
+                  <span className="font-medium text-sm">{it.name}</span>
+                  <span className="text-sm text-muted-foreground leading-relaxed">{it.info}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-muted-foreground/80 text-xs mt-10 italic">
+        * Para opciones sin gluten, pedir con pan sin gluten (+1,20 €).
+      </p>
+    </section>
   );
 }
