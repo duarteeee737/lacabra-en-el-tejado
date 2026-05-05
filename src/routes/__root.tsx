@@ -32,11 +32,15 @@ export const Route = createRootRoute({
       { title: "La Cabra en el Tejado · Bar mediterráneo en Madrid" },
       { name: "description", content: "Bar acogedor en el centro de Madrid con aperitivos mediterráneos, falafel, crepes y vermut." },
       { name: "author", content: "La Cabra en el Tejado" },
-      { property: "og:title", content: "La Cabra en el Tejado" },
-      { property: "og:description", content: "Aperitivos mediterráneos en el corazón de Madrid." },
+      { property: "og:title", content: "La Cabra en el Tejado · Bar mediterráneo en Madrid" },
+      { property: "og:description", content: "Bar acogedor en el centro de Madrid con aperitivos mediterráneos, falafel, crepes y vermut." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "La Cabra en el Tejado · Bar mediterráneo en Madrid" },
+      { name: "twitter:description", content: "Bar acogedor en el centro de Madrid con aperitivos mediterráneos, falafel, crepes y vermut." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61b2622d-edcc-421b-a292-4981923f1045/id-preview-2651b98a--a5722f4c-5d62-43bc-85ef-bca4a615fd01.lovable.app-1778000267988.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61b2622d-edcc-421b-a292-4981923f1045/id-preview-2651b98a--a5722f4c-5d62-43bc-85ef-bca4a615fd01.lovable.app-1778000267988.png" },
     ],
     links: [
       {
