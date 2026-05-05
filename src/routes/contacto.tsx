@@ -54,7 +54,10 @@ function ContactoPage() {
             <a href="tel:+34910333359" className="block font-display text-3xl text-primary hover:underline">
               910 33 33 59
             </a>
-            <p className="text-sm text-muted-foreground mt-2">Recomendado para grupos y fines de semana.</p>
+            <p className="text-sm text-muted-foreground mt-2">Recomendado llamar con antelación.</p>
+            <div className="mt-4 border-l-2 border-primary pl-4 text-sm text-muted-foreground">
+              <strong className="text-foreground font-medium">Aviso:</strong> no se aceptan reservas por la noche ni los fines de semana.
+            </div>
           </div>
 
           <div className="bg-card rounded-3xl p-8 shadow-soft">
