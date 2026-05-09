@@ -1,5 +1,10 @@
 name: Deploy to GitHub Pages
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 on:
   push:
     branches: [main]
@@ -7,14 +12,16 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
       - run: bun install
       - run: bun run build
-      - uses: actions/deploy-pages@v2
-        with:
-          artifact_name: github-pages
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
+      - id: deployment
+        uses: actions/deploy-pages@v4
